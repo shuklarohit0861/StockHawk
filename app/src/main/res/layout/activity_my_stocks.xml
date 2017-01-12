@@ -8,8 +8,18 @@
 
   <android.support.v7.widget.RecyclerView
       android:id="@+id/recycler_view"
-      android:layout_width="match_parent"
+      android:layout_width="match_parent"  
       android:layout_height="match_parent"
+      />
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/errors_show"
+      style="@style/BidPriceTextStyle"
+      android:text="error"
+      android:gravity="center"
+      android:visibility="gone"
       />
 
   <com.melnykov.fab.FloatingActionButton
