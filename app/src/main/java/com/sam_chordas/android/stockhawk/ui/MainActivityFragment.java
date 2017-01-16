@@ -32,34 +32,31 @@ public class MainActivityFragment extends Fragment {
     public MainActivityFragment() {
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if (lineset != null)
-        {
 
-        }
-
-    }
 
     private LineChartView lineChartView;
      private String stockHistory;
     private LineSet lineset;
     private TextView stockName;
     DateFormatSymbols dateformate = new DateFormatSymbols();
+    List<HistoricalQuote> historic = null;
     String[] month  = new String[14];
+    TextView value;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_main, container, false);
-        Bundle bundle = getActivity().getIntent().getExtras();
-            stockHistory = bundle.getString("STOCK");
-        Log.v("STOCK",bundle.getString("STOCK"));
-
-//
+        value = (TextView) view.findViewById(R.id.stockValue);
         lineChartView = (LineChartView) view.findViewById(R.id.linechart);
         stockName = (TextView) view.findViewById(R.id.stockName);
+
+        Bundle bundle = getActivity().getIntent().getExtras();
+            stockHistory = bundle.getString("STOCK");
+            String valueString = bundle.getString("VALUE");
+        Log.v("STOCK",bundle.getString("STOCK"));
+        value.setText(valueString);
+
         stockName.setText(stockHistory);
         month = dateformate.getShortMonths();
 
@@ -95,14 +92,14 @@ public class MainActivityFragment extends Fragment {
             lineset = new LineSet();
             int i = 0;
 
-            List<HistoricalQuote> historic = historicalQuotes;
+            historic= historicalQuotes;
             Collections.reverse(historic);
             for (HistoricalQuote historicalQoute : historic)
             {
 
 
                 i++;
-                if(i%20 == 0 || i == 1)
+                if(i%25 == 0 || i == 1)
                 {
                     int m = historicalQoute.getDate().get(Calendar.MONTH);
                     String mon = month[m];
@@ -120,6 +117,7 @@ public class MainActivityFragment extends Fragment {
             lineChartView.show();
         }
     }
+
 
 
 

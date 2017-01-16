@@ -91,9 +91,11 @@ public class   MyStocksActivity extends AppCompatActivity implements LoaderManag
                 //TODO:
                 mCursor.moveToPosition(position);
                 String text = mCursor.getString(1);
+                String value = mCursor.getString(2);
                 if(isConnected) {
                   Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                   intent.putExtra("STOCK", text);
+                  intent.putExtra("VALUE",value);
                   startActivity(intent);
                 }
                 else
@@ -181,10 +183,6 @@ public class   MyStocksActivity extends AppCompatActivity implements LoaderManag
     Toast.makeText(mContext, getString(R.string.network_toast), Toast.LENGTH_SHORT).show();
   }
 
-  public void stockNotAvailableToast()
-  {
-    Toast.makeText(mContext,"stock is not available ",Toast.LENGTH_LONG).show();
-  }
 
   public void restoreActionBar() {
     ActionBar actionBar = getSupportActionBar();
