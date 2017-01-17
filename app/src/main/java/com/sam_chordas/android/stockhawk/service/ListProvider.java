@@ -38,6 +38,7 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
                     QuoteColumns.ISCURRENT + " = ?",
                     new String[]{"1"},
                     null);
+
         isValidate = StockCursor != null;
         rowID = isValidate ? StockCursor.getColumnIndex("_id") : -1;
     }
@@ -82,7 +83,7 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
 
     @Override
     public int getViewTypeCount() {
-        return 0;
+        return 3;
     }
 
     @Override

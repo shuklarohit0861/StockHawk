@@ -19,7 +19,7 @@
       style="@style/BidPriceTextStyle"
       android:text="error"
       android:gravity="center"
-      android:visibility="gone"
+      
       />
 
   <com.melnykov.fab.FloatingActionButton

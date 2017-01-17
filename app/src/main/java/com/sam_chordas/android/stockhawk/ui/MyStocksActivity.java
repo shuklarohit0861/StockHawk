@@ -55,11 +55,12 @@ public class   MyStocksActivity extends AppCompatActivity implements LoaderManag
   private Cursor mCursor;
   boolean isConnected;
   private TextView errorShow;
+   RecyclerView recyclerView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    errorShow = (TextView) findViewById(R.id.errors_show);
+
     mContext = this;
     ConnectivityManager cm =
         (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -68,6 +69,9 @@ public class   MyStocksActivity extends AppCompatActivity implements LoaderManag
     isConnected = activeNetwork != null &&
         activeNetwork.isConnectedOrConnecting();
     setContentView(R.layout.activity_my_stocks);
+
+    errorShow = (TextView) findViewById(R.id.errors_show);
+    errorShow.setVisibility(View.INVISIBLE);
     // The intent service is for executing immediate pulls from the Yahoo API
     // GCMTaskService can only schedule tasks, they cannot execute immediately
     mServiceIntent = new Intent(this, StockIntentService.class);
@@ -80,8 +84,9 @@ public class   MyStocksActivity extends AppCompatActivity implements LoaderManag
         networkToast();
       }
     }
-    final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+     recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     getLoaderManager().initLoader(CURSOR_LOADER_ID, null, this);
 
     mCursorAdapter = new QuoteCursorAdapter(this, null);
@@ -234,12 +239,23 @@ public class   MyStocksActivity extends AppCompatActivity implements LoaderManag
   public void onLoadFinished(Loader<Cursor> loader, Cursor data){
     if (data == null)
     {
-
+      if(!isConnected)
+      {
+        errorShow.setText(getString(R.string.no_data_and_no_connection));
+        errorShow.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.GONE);
+      }
+      else {
+        errorShow.setText(getString(R.string.no_data_available));
+        errorShow.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.GONE);
+      }
     }
+    else {
+           mCursorAdapter.swapCursor(data);
 
-    mCursorAdapter.swapCursor(data);
-
-    mCursor = data;
+      mCursor = data;
+    }
   }
 
   @Override

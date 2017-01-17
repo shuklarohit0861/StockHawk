@@ -1,6 +1,5 @@
 package com.sam_chordas.android.stockhawk.ui;
 
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
@@ -34,14 +33,14 @@ public class NewAppWidget extends AppWidgetProvider {
         views.setRemoteAdapter(appWidgetId,R.id.widgetListView,intentW);
         views.setEmptyView(R.id.widgetListView,R.id.emptyView);
 
-        Intent click = new Intent(context,MyStocksActivity.class);
-
-        PendingIntent clickPI=PendingIntent
-                .getActivity(context, 0,
-                        click,
-                        PendingIntent.FLAG_UPDATE_CURRENT);
-
-        views.setOnClickPendingIntent(R.id.widgetListView,clickPI);
+//        Intent click = new Intent(context,MyStocksActivity.class);
+//
+//        PendingIntent clickPI=PendingIntent
+//                .getActivity(context, 0,
+//                        click,
+//                        PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//        views.setOnClickPendingIntent(R.id.widgetListView,clickPI);
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
