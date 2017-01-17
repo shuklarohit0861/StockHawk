@@ -8,11 +8,6 @@ import com.sam_chordas.android.stockhawk.R;
 
 
 public class MainActivity extends AppCompatActivity {
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +19,4 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(ex.getString("STOCK"));
 
       }
-
-
-
 }
