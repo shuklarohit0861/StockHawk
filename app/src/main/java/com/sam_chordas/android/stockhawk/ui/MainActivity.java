@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle ex = getIntent().getExtras();
 
+
         getSupportActionBar().setTitle(ex.getString("STOCK"));
 
       }

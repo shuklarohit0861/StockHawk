@@ -15,4 +15,7 @@
     <string name="add_widget" translatable="false">Add widget</string>
     <string name="no_data_available">No Data available</string>
     <string name="no_data_and_no_connection">This app requires an internet connection and data is not available . </string>
+    <string name="add_new_stock_by_clicking_this_button">add new stock by clicking this button</string>
+    <string name="stock_symbol">Stock symbol is </string>
+    <string name="bid_price">and  bid price is</string>
 </resources>

@@ -8,4 +8,8 @@
     <string name="content_test">بحث عن الأوراق المالية رمز</string>
     <string name="action_settings">إعدادات</string>
     <string name="action_change_units">وحدات التغيير</string>
+    <string name="add_new_stock_by_clicking_this_button">إضافة الأسهم الجديدة من خلال النقر على هذا الزر</string>
+    <string name="bid_price">سعر</string>
+    <string name="change_in_bid_price">تغيير في سعر</string>
+    <string name="stock_symbol">رمز السهم</string>
 </resources>
