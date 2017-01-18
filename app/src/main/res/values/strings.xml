@@ -1,21 +1,23 @@
 <resources>
     <string name="app_name">Stock Hawk</string>
 
-    <string name="action_example" translatable="false">Example action</string>
+    <string name="action_example">Example action</string>
 
     <string name="action_settings">Settings</string>
     <string name="action_change_units">Change Units</string>
     <string name="symbol_search">Symbol Search</string>
     <string name="content_test">Search for a Stock Symbol</string>
-    <string name="input_hint" translatable="false">FB</string>
+    <string name="input_hint">FB</string>
     <string name="input_prefill"></string>
     <string name="network_toast">Uh-oh! This app requires an internet connection</string>
-    <string name="title_activity_main" translatable="false">MainActivity</string>
+    <string name="title_activity_main">MainActivity</string>
 
-    <string name="add_widget" translatable="false">Add widget</string>
+    <string name="add_widget">Add widget</string>
     <string name="no_data_available">No Data available</string>
     <string name="no_data_and_no_connection">This app requires an internet connection and data is not available . </string>
     <string name="add_new_stock_by_clicking_this_button">add new stock by clicking this button</string>
     <string name="stock_symbol">Stock symbol is </string>
     <string name="bid_price">and  bid price is</string>
+    <string name="error">error</string>
+    <string name="stock_is_already_saved">This stock is already saved!</string>
 </resources>
